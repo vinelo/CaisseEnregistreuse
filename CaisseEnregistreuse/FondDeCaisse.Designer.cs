@@ -248,6 +248,7 @@
             this.pbx20.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbx20.TabIndex = 36;
             this.pbx20.TabStop = false;
+            this.pbx20.Click += new System.EventHandler(this.pbx20_Click);
             // 
             // pbx10
             // 

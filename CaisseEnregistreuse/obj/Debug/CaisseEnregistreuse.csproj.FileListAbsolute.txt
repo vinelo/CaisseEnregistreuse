@@ -20,3 +20,15 @@ C:\Users\NAEFV_INFO\Desktop\Travaux\CaisseEnregistreuse - Copie\CaisseEnregistre
 C:\Users\NAEFV_INFO\Desktop\Travaux\CaisseEnregistreuse - Copie\CaisseEnregistreuse\obj\Debug\CaisseEnregistreuse.inclusionFondCaisse.resources
 C:\Users\NAEFV_INFO\Desktop\Travaux\CaisseEnregistreuse - Copie\CaisseEnregistreuse\obj\Debug\CaisseEnregistreuse.Properties.Resources.resources
 C:\Users\NAEFV_INFO\Desktop\Travaux\CaisseEnregistreuse - Copie\CaisseEnregistreuse\obj\Debug\CaisseEnregistreuse.csproj.GenerateResource.Cache
+C:\Users\NAEFV_INFO\Desktop\CaisseEnregistreuse\CaisseEnregistreuse\bin\Debug\CaisseEnregistreuse.exe.config
+C:\Users\NAEFV_INFO\Desktop\CaisseEnregistreuse\CaisseEnregistreuse\obj\Debug\CaisseEnregistreuse.exe
+C:\Users\NAEFV_INFO\Desktop\CaisseEnregistreuse\CaisseEnregistreuse\obj\Debug\CaisseEnregistreuse.pdb
+C:\Users\NAEFV_INFO\Desktop\CaisseEnregistreuse\CaisseEnregistreuse\bin\Debug\CaisseEnregistreuse.exe
+C:\Users\NAEFV_INFO\Desktop\CaisseEnregistreuse\CaisseEnregistreuse\bin\Debug\CaisseEnregistreuse.pdb
+C:\Users\NAEFV_INFO\Desktop\CaisseEnregistreuse\CaisseEnregistreuse\obj\Debug\CaisseEnregistreuse.csprojResolveAssemblyReference.cache
+C:\Users\NAEFV_INFO\Desktop\CaisseEnregistreuse\CaisseEnregistreuse\obj\Debug\CaisseEnregistreuse.FondDeCaisse.resources
+C:\Users\NAEFV_INFO\Desktop\CaisseEnregistreuse\CaisseEnregistreuse\obj\Debug\CaisseEnregistreuse.Form1.resources
+C:\Users\NAEFV_INFO\Desktop\CaisseEnregistreuse\CaisseEnregistreuse\obj\Debug\CaisseEnregistreuse.inclusionFondCaisse.resources
+C:\Users\NAEFV_INFO\Desktop\CaisseEnregistreuse\CaisseEnregistreuse\obj\Debug\CaisseEnregistreuse.Properties.Resources.resources
+C:\Users\NAEFV_INFO\Desktop\CaisseEnregistreuse\CaisseEnregistreuse\obj\Debug\CaisseEnregistreuse.Vente.resources
+C:\Users\NAEFV_INFO\Desktop\CaisseEnregistreuse\CaisseEnregistreuse\obj\Debug\CaisseEnregistreuse.csproj.GenerateResource.Cache

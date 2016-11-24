@@ -22,6 +22,7 @@ namespace CaisseEnregistreuse
 
         FondDeCaisse FDC;
         inclusionFondCaisse IFDC;
+        Vente V;
         public Form1()
         {
             InitializeComponent();
@@ -37,6 +38,12 @@ namespace CaisseEnregistreuse
         {
             FDC = new FondDeCaisse();
             FDC.ShowDialog();
+        }
+
+        private void btnProcederVente_Click(object sender, EventArgs e)
+        {
+            V = new Vente();
+            V.ShowDialog();
         }
     }
 }

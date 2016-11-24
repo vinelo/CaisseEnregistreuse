@@ -51,6 +51,7 @@
             this.btnProcederVente.TabIndex = 1;
             this.btnProcederVente.Text = "Procéder à une vente";
             this.btnProcederVente.UseVisualStyleBackColor = true;
+            this.btnProcederVente.Click += new System.EventHandler(this.btnProcederVente_Click);
             // 
             // btnInclureFondCaisse
             // 

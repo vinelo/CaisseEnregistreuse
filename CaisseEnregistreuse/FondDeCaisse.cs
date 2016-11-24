@@ -44,5 +44,10 @@ namespace CaisseEnregistreuse
         {
 
         }
+
+        private void pbx20_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

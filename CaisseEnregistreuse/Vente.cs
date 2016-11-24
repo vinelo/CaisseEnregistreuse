@@ -16,5 +16,15 @@ namespace CaisseEnregistreuse
         {
             InitializeComponent();
         }
+
+        private void btnAjouterPrix_Click(object sender, EventArgs e)
+        {
+            lsbPrix.Items.Add(tbxPrixAInserer.Text);
+        }
+
+        public void Change()
+        {
+
+        }
     }
 }
