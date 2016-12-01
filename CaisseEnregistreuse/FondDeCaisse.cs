@@ -32,6 +32,7 @@ namespace CaisseEnregistreuse
             this.lbl02.Text = "x " + Convert.ToString(FR[10]);
             this.lbl01.Text = "x " + Convert.ToString(FR[11]);
             this.lbl005.Text = "x " + Convert.ToString(FR[12]);
+            lblTotal.Text = "Fond de caisse : CHF " + Convert.ToString(C.CalculTotal());
         }
         
 

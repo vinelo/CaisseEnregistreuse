@@ -8,13 +8,6 @@ namespace CaisseEnregistreuse
 {
     class Caisse
     {
-        private int _frr1000;
-
-        public int Frr1000
-        {
-            get { return _frr1000; }
-            set { _frr1000 = value; }
-        }
         static private int _fr1000;
 
         static public int Fr1000
