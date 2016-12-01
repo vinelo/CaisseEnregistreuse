@@ -130,5 +130,10 @@ namespace CaisseEnregistreuse
         {
             return 1000 * Fr1000 + 200 * Fr200 + 100 * Fr100 + 50 * Fr50 + 20 * Fr20 + 10 * Fr10 + 5 * Fr5 + 2 * Fr2 + 1 * Fr1 + 0.5 * Fr05 + 0.2 * Fr02 + 0.1 * Fr01 + 0.05 * Fr005;
         }
+
+        //public double Encaissement()
+        //{
+
+        //}
     }
 }

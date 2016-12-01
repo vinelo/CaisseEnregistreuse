@@ -34,6 +34,7 @@
             this.btnSupprimerPrix = new System.Windows.Forms.Button();
             this.btnPaiement = new System.Windows.Forms.Button();
             this.btnRetour = new System.Windows.Forms.Button();
+            this.lblLabelTotal = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -51,6 +52,8 @@
             this.tbxPrixAInserer.Name = "tbxPrixAInserer";
             this.tbxPrixAInserer.Size = new System.Drawing.Size(83, 20);
             this.tbxPrixAInserer.TabIndex = 1;
+            this.tbxPrixAInserer.TextChanged += new System.EventHandler(this.tbxPrixAInserer_TextChanged);
+            this.tbxPrixAInserer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxPrixAInserer_KeyPress);
             // 
             // btnAjouterPrix
             // 
@@ -70,6 +73,7 @@
             this.btnSupprimerPrix.TabIndex = 3;
             this.btnSupprimerPrix.Text = "Supprimer";
             this.btnSupprimerPrix.UseVisualStyleBackColor = true;
+            this.btnSupprimerPrix.Click += new System.EventHandler(this.btnSupprimerPrix_Click);
             // 
             // btnPaiement
             // 
@@ -79,6 +83,7 @@
             this.btnPaiement.TabIndex = 4;
             this.btnPaiement.Text = "Paiement";
             this.btnPaiement.UseVisualStyleBackColor = true;
+            this.btnPaiement.Click += new System.EventHandler(this.btnPaiement_Click);
             // 
             // btnRetour
             // 
@@ -88,15 +93,25 @@
             this.btnRetour.TabIndex = 5;
             this.btnRetour.Text = "Retour";
             this.btnRetour.UseVisualStyleBackColor = true;
+            this.btnRetour.Click += new System.EventHandler(this.btnRetour_Click);
+            // 
+            // lblLabelTotal
+            // 
+            this.lblLabelTotal.AutoSize = true;
+            this.lblLabelTotal.Location = new System.Drawing.Point(12, 306);
+            this.lblLabelTotal.Name = "lblLabelTotal";
+            this.lblLabelTotal.Size = new System.Drawing.Size(40, 13);
+            this.lblLabelTotal.TabIndex = 6;
+            this.lblLabelTotal.Text = "Total : ";
             // 
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(12, 306);
+            this.lblTotal.Location = new System.Drawing.Point(98, 306);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(40, 13);
-            this.lblTotal.TabIndex = 6;
-            this.lblTotal.Text = "Total : ";
+            this.lblTotal.Size = new System.Drawing.Size(25, 13);
+            this.lblTotal.TabIndex = 7;
+            this.lblTotal.Text = "0 Fr";
             // 
             // Vente
             // 
@@ -104,6 +119,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(245, 395);
             this.Controls.Add(this.lblTotal);
+            this.Controls.Add(this.lblLabelTotal);
             this.Controls.Add(this.btnRetour);
             this.Controls.Add(this.btnPaiement);
             this.Controls.Add(this.btnSupprimerPrix);
@@ -125,6 +141,7 @@
         private System.Windows.Forms.Button btnSupprimerPrix;
         private System.Windows.Forms.Button btnPaiement;
         private System.Windows.Forms.Button btnRetour;
+        private System.Windows.Forms.Label lblLabelTotal;
         private System.Windows.Forms.Label lblTotal;
     }
 }
