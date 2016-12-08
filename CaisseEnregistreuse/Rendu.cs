@@ -12,9 +12,14 @@ namespace CaisseEnregistreuse
 {
     public partial class Rendu : Form
     {
-        public Rendu()
+        public Rendu(int [] argentARendre)
         {
             InitializeComponent();
+        }
+
+        private void tbxFin_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -13,11 +13,14 @@ namespace CaisseEnregistreuse
     public partial class Encaissement : Form
     {
         double Total;
+        Caisse C;
         public Encaissement(double TotalAPayer)
         {
             InitializeComponent();
             Total = TotalAPayer;
             tbxTotal.Text = Convert.ToString(Total);
+
+            C = new Caisse();
         }
 
         int FR1000 = 0;
@@ -33,6 +36,8 @@ namespace CaisseEnregistreuse
         int FR02 = 0;
         int FR01 = 0;
         int FR005 = 0;
+
+        double ArgentDonne;
 
         private void Change()
         {
@@ -50,7 +55,7 @@ namespace CaisseEnregistreuse
             lbl01.Text = "x " + Convert.ToString(FR01);
             lbl005.Text = "x " + Convert.ToString(FR005);
             
-            double ArgentDonne = 1000 * FR1000 + 200 * FR200 + 100 * FR100 + 50 * FR50 + 20 * FR20 + 10 * FR10 + 5 * FR5 + 2 * FR2 + 1 * FR1 + 0.5 * FR05 + 0.2 * FR02 + 0.1 * FR01 + 0.05 * FR005;
+            ArgentDonne = 1000 * FR1000 + 200 * FR200 + 100 * FR100 + 50 * FR50 + 20 * FR20 + 10 * FR10 + 5 * FR5 + 2 * FR2 + 1 * FR1 + 0.5 * FR05 + 0.2 * FR02 + 0.1 * FR01 + 0.05 * FR005;
             tbxArgentDonne.Text = Convert.ToString(ArgentDonne) + " Fr";
 
             double Reste = Total - ArgentDonne;
@@ -237,7 +242,10 @@ namespace CaisseEnregistreuse
 
         private void btnEncaisser_Click(object sender, EventArgs e)
         {
-
+            int [] Coupure = { FR1000,FR200, FR100,FR50,FR20,FR10,FR5,FR2,FR1,FR05,FR02,FR01,FR005};
+            
+            Rendu R = new Rendu(C.Encaissement(Total, Coupure, ArgentDonne));
+            R.ShowDialog();
         }
     }
 }

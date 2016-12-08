@@ -33,3 +33,4 @@ C:\Users\NAEFV_INFO\Desktop\CaisseEnregistreuse\CaisseEnregistreuse\obj\Debug\Ca
 C:\Users\NAEFV_INFO\Desktop\CaisseEnregistreuse\CaisseEnregistreuse\obj\Debug\CaisseEnregistreuse.Vente.resources
 C:\Users\NAEFV_INFO\Desktop\CaisseEnregistreuse\CaisseEnregistreuse\obj\Debug\CaisseEnregistreuse.csproj.GenerateResource.Cache
 C:\Users\NAEFV_INFO\Desktop\CaisseEnregistreuse\CaisseEnregistreuse\obj\Debug\CaisseEnregistreuse.Encaissement.resources
+C:\Users\NAEFV_INFO\Desktop\CaisseEnregistreuse\CaisseEnregistreuse\obj\Debug\CaisseEnregistreuse.Rendu.resources

@@ -122,8 +122,8 @@ namespace CaisseEnregistreuse
         }
         public int[] returnNumberOfMoney()
         {
-            int[] NumberMoney = { Fr1000,Fr200,Fr100,Fr50,Fr20,Fr10,Fr5,Fr2,Fr1,Fr05,Fr02,Fr01,Fr005};
-            return NumberMoney;
+            int[] coupureARendre = { Fr1000, Fr200, Fr100, Fr50, Fr20, Fr10, Fr5, Fr2, Fr1, Fr05, Fr02, Fr01, Fr005 };
+            return coupureARendre;
         }
 
         public double CalculTotal()
@@ -131,9 +131,157 @@ namespace CaisseEnregistreuse
             return 1000 * Fr1000 + 200 * Fr200 + 100 * Fr100 + 50 * Fr50 + 20 * Fr20 + 10 * Fr10 + 5 * Fr5 + 2 * Fr2 + 1 * Fr1 + 0.5 * Fr05 + 0.2 * Fr02 + 0.1 * Fr01 + 0.05 * Fr005;
         }
 
-        //public double Encaissement()
-        //{
+        public int[] Encaissement(double aPayer, int[] coupureDonne, double totalDonne)
+        {
+            int[] coupureARendre = new int[13];
+            Fr1000 += coupureDonne[0];
+            Fr200 += coupureDonne[1];
+            Fr100 += coupureDonne[2];
+            Fr50 += coupureDonne[3];
+            Fr20 += coupureDonne[4];
+            Fr10 += coupureDonne[5];
+            Fr5 += coupureDonne[6];
+            Fr2 += coupureDonne[7];
+            Fr1 += coupureDonne[8];
+            Fr05 += coupureDonne[9];
+            Fr02 += coupureDonne[10];
+            Fr01 += coupureDonne[11];
+            Fr005 += coupureDonne[12];
 
-        //}
+            double aRendre = totalDonne - aPayer;
+
+
+            while (aRendre >= 1000 && Fr1000 > 0)
+            {
+                if (aRendre - 1000 >= 0 && Fr1000 > 0)
+                {
+                    aRendre -= 1000;
+                    coupureARendre[0] += 1;
+                    Fr1000 -= 1;
+                }
+            }
+
+            while (aRendre >= 200 && Fr200 > 0)
+            {
+                if (aRendre - 200 >= 0 && Fr200 > 0)
+                {
+                    aRendre -= 200;
+                    coupureARendre[1] += 1;
+                    Fr200 -= 1;
+                }
+            }
+
+            while (aRendre >= 100 && Fr100 > 0)
+            {
+                if (aRendre - 100 >= 0 && Fr100 > 0)
+                {
+                    aRendre -= 100;
+                    coupureARendre[2] += 1;
+                    Fr100 -= 1;
+                }
+            }
+
+            while (aRendre >= 50 && Fr50 > 0)
+            {
+                if (aRendre - 50 >= 0 && Fr50 > 0)
+                {
+                    aRendre -= 50;
+                    coupureARendre[3] += 1;
+                    Fr50 -= 1;
+                }
+            }
+
+            while (aRendre >= 20 && Fr20 > 0)
+            {
+                if (aRendre - 20 >= 0 && Fr20 > 0)
+                {
+                    aRendre -= 20;
+                    coupureARendre[4] += 1;
+                    Fr20 -= 1;
+                }
+            }
+
+            while (aRendre >= 10 && Fr10 > 0)
+            {
+                if (aRendre - 10 >= 0 && Fr10 > 0)
+                {
+                    aRendre -= 10;
+                    coupureARendre[5] += 1;
+                    Fr10 -= 1;
+                }
+            }
+
+            while (aRendre >= 5 && Fr5 > 0)
+            {
+                if (aRendre - 5 >= 0 && Fr5 > 0)
+                {
+                    aRendre -= 5;
+                    coupureARendre[6] += 1;
+                    Fr5 -= 1;
+                }
+            }
+
+            while (aRendre >= 2 && Fr2 > 0)
+            {
+                if (aRendre - 2 >= 0 && Fr2 > 0)
+                {
+                    aRendre -= 2;
+                    coupureARendre[7] += 1;
+                    Fr2 -= 1;
+                }
+            }
+
+            while (aRendre >= 1 && Fr1 > 0)
+            {
+                if (aRendre - 1 >= 0 && Fr1 > 0)
+                {
+                    aRendre -= 1;
+                    coupureARendre[8] += 1;
+                    Fr1 -= 1;
+                }
+            }
+
+            while (aRendre >= 1000 && Fr05 > 0)
+            {
+                if (aRendre - 0.5 >= 0 && Fr05 > 0)
+                {
+                    aRendre -= 0.5;
+                    coupureARendre[9] += 1;
+                    Fr05 -= 1;
+                }
+            }
+
+            while (aRendre >= 0.2 && Fr02 > 0)
+            {
+                if (aRendre - 0.2 >= 0 && Fr02 > 0)
+                {
+                    aRendre -= 0.2;
+                    coupureARendre[10] += 1;
+                    Fr02 -= 1;
+                }
+            }
+
+            while (aRendre >= 0.1 && Fr01 > 0)
+            {
+                if (aRendre - 0.1 >= 0 && Fr01 > 0)
+                {
+                    aRendre -= 0.1;
+                    coupureARendre[11] += 1;
+                    Fr01 -= 1;
+                }
+            }
+
+            while (aRendre >= 0.05 && Fr005 > 0)
+            {
+                if (aRendre - 0.05 >= 0 && Fr005 > 0)
+                {
+                    aRendre -= 0.05;
+                    coupureARendre[12] += 1;
+                    Fr005 -= 1;
+                }
+            }
+
+            return coupureARendre;
+        }
     }
 }

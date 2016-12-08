@@ -33,18 +33,19 @@
             // 
             // tbxFin
             // 
-            this.tbxFin.Location = new System.Drawing.Point(246, 465);
+            this.tbxFin.Location = new System.Drawing.Point(12, 462);
             this.tbxFin.Name = "tbxFin";
-            this.tbxFin.Size = new System.Drawing.Size(75, 23);
+            this.tbxFin.Size = new System.Drawing.Size(589, 43);
             this.tbxFin.TabIndex = 0;
             this.tbxFin.Text = "Fin";
             this.tbxFin.UseVisualStyleBackColor = true;
+            this.tbxFin.Click += new System.EventHandler(this.tbxFin_Click);
             // 
             // Rendu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(571, 517);
+            this.ClientSize = new System.Drawing.Size(613, 517);
             this.Controls.Add(this.tbxFin);
             this.Name = "Rendu";
             this.Text = "Rendu";
