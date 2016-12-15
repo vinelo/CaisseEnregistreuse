@@ -60,7 +60,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Caisse.cs" />
-    <Compile Include="Caisse1.cs" />
     <Compile Include="Encaissement.cs">
       <SubType>Form</SubType>
     </Compile>
