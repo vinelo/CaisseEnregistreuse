@@ -133,152 +133,134 @@ namespace CaisseEnregistreuse
 
         public int[] Encaissement(double aPayer, int[] coupureDonne, double totalDonne)
         {
-            int[] coupureARendre = new int[13];
-            Fr1000 += coupureDonne[0];
-            Fr200 += coupureDonne[1];
-            Fr100 += coupureDonne[2];
-            Fr50 += coupureDonne[3];
-            Fr20 += coupureDonne[4];
-            Fr10 += coupureDonne[5];
-            Fr5 += coupureDonne[6];
-            Fr2 += coupureDonne[7];
-            Fr1 += coupureDonne[8];
-            Fr05 += coupureDonne[9];
-            Fr02 += coupureDonne[10];
-            Fr01 += coupureDonne[11];
-            Fr005 += coupureDonne[12];
 
+            int[] coupureARendre = new int[13];
             double aRendre = totalDonne - aPayer;
 
+            int Fr1000Temp = Fr1000 + coupureDonne[0];
+            int Fr200Temp = Fr200 + coupureDonne[1];
+            int Fr100Temp = Fr100 + coupureDonne[2];
+            int Fr50Temp = Fr50 + coupureDonne[3];
+            int Fr20Temp = Fr20 + coupureDonne[4];
+            int Fr10Temp = Fr10 + coupureDonne[5];
+            int Fr5Temp = Fr5 + coupureDonne[6];
+            int Fr2Temp = Fr2 + coupureDonne[7];
+            int Fr1Temp = Fr1 + coupureDonne[8];
+            int Fr05Temp = Fr05 + coupureDonne[9];
+            int Fr02Temp = Fr02 + coupureDonne[10];
+            int Fr01Temp = Fr01 + coupureDonne[11];
+            int Fr005Temp = Fr005 + coupureDonne[12];
 
             while (aRendre >= 1000 && Fr1000 > 0)
             {
-                if (aRendre - 1000 >= 0 && Fr1000 > 0)
-                {
-                    aRendre -= 1000;
-                    coupureARendre[0] += 1;
-                    Fr1000 -= 1;
-                }
+                aRendre -= 1000;
+                coupureARendre[0] += 1;
+                Fr1000Temp -= 1;
             }
 
             while (aRendre >= 200 && Fr200 > 0)
             {
-                if (aRendre - 200 >= 0 && Fr200 > 0)
-                {
-                    aRendre -= 200;
-                    coupureARendre[1] += 1;
-                    Fr200 -= 1;
-                }
+                aRendre -= 200;
+                coupureARendre[1] += 1;
+                Fr200Temp -= 1;
             }
 
             while (aRendre >= 100 && Fr100 > 0)
             {
-                if (aRendre - 100 >= 0 && Fr100 > 0)
-                {
-                    aRendre -= 100;
-                    coupureARendre[2] += 1;
-                    Fr100 -= 1;
-                }
+                aRendre -= 100;
+                coupureARendre[2] += 1;
+                Fr100Temp -= 1;
             }
 
             while (aRendre >= 50 && Fr50 > 0)
             {
-                if (aRendre - 50 >= 0 && Fr50 > 0)
-                {
-                    aRendre -= 50;
-                    coupureARendre[3] += 1;
-                    Fr50 -= 1;
-                }
+                aRendre -= 50;
+                coupureARendre[3] += 1;
+                Fr50Temp -= 1;
             }
 
             while (aRendre >= 20 && Fr20 > 0)
             {
-                if (aRendre - 20 >= 0 && Fr20 > 0)
-                {
-                    aRendre -= 20;
-                    coupureARendre[4] += 1;
-                    Fr20 -= 1;
-                }
+                aRendre -= 20;
+                coupureARendre[4] += 1;
+                Fr20Temp -= 1;
             }
 
             while (aRendre >= 10 && Fr10 > 0)
             {
-                if (aRendre - 10 >= 0 && Fr10 > 0)
-                {
-                    aRendre -= 10;
-                    coupureARendre[5] += 1;
-                    Fr10 -= 1;
-                }
+                aRendre -= 10;
+                coupureARendre[5] += 1;
+                Fr10Temp -= 1;
             }
 
             while (aRendre >= 5 && Fr5 > 0)
             {
-                if (aRendre - 5 >= 0 && Fr5 > 0)
-                {
-                    aRendre -= 5;
-                    coupureARendre[6] += 1;
-                    Fr5 -= 1;
-                }
+                aRendre -= 5;
+                coupureARendre[6] += 1;
+                Fr5Temp -= 1;
             }
 
             while (aRendre >= 2 && Fr2 > 0)
             {
-                if (aRendre - 2 >= 0 && Fr2 > 0)
-                {
-                    aRendre -= 2;
-                    coupureARendre[7] += 1;
-                    Fr2 -= 1;
-                }
+                aRendre -= 2;
+                coupureARendre[7] += 1;
+                Fr2Temp -= 1;
             }
 
             while (aRendre >= 1 && Fr1 > 0)
             {
-                if (aRendre - 1 >= 0 && Fr1 > 0)
-                {
-                    aRendre -= 1;
-                    coupureARendre[8] += 1;
-                    Fr1 -= 1;
-                }
+                aRendre -= 1;
+                coupureARendre[8] += 1;
+                Fr1Temp -= 1;
             }
 
-            while (aRendre >= 1000 && Fr05 > 0)
+            while (aRendre >= 0.5 && Fr05 > 0)
             {
-                if (aRendre - 0.5 >= 0 && Fr05 > 0)
-                {
-                    aRendre -= 0.5;
-                    coupureARendre[9] += 1;
-                    Fr05 -= 1;
-                }
+                aRendre -= 0.5;
+                coupureARendre[9] += 1;
+                Fr05Temp -= 1;
             }
 
             while (aRendre >= 0.2 && Fr02 > 0)
             {
-                if (aRendre - 0.2 >= 0 && Fr02 > 0)
-                {
-                    aRendre -= 0.2;
-                    coupureARendre[10] += 1;
-                    Fr02 -= 1;
-                }
+                aRendre -= 0.2;
+                coupureARendre[10] += 1;
+                Fr02Temp -= 1;
             }
 
             while (aRendre >= 0.1 && Fr01 > 0)
             {
-                if (aRendre - 0.1 >= 0 && Fr01 > 0)
-                {
-                    aRendre -= 0.1;
-                    coupureARendre[11] += 1;
-                    Fr01 -= 1;
-                }
+                aRendre -= 0.1;
+                coupureARendre[11] += 1;
+                Fr01Temp -= 1;
             }
 
             while (aRendre >= 0.05 && Fr005 > 0)
             {
-                if (aRendre - 0.05 >= 0 && Fr005 > 0)
-                {
-                    aRendre -= 0.05;
-                    coupureARendre[12] += 1;
-                    Fr005 -= 1;
-                }
+                aRendre -= 0.05;
+                coupureARendre[12] += 1;
+                Fr005Temp -= 1;
+            }
+
+            if (aRendre == 0)
+            {
+                Fr1000 = Fr1000Temp;
+                Fr200 = Fr200Temp;
+                Fr100 = Fr100Temp;
+                Fr50 = Fr50Temp;
+                Fr20 = Fr20Temp;
+                Fr10 = Fr10Temp;
+                Fr5 = Fr5Temp;
+                Fr2 = Fr2Temp;
+                Fr1 = Fr1Temp;
+                Fr05 = Fr05Temp;
+                Fr02 = Fr02Temp;
+                Fr01 = Fr01Temp;
+                Fr005 = Fr005Temp;
+            }
+            else
+            {
+                coupureARendre = new int[1];
             }
 
             return coupureARendre;
