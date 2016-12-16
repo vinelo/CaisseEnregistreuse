@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CaisseEnregistreuse
@@ -22,8 +15,12 @@ namespace CaisseEnregistreuse
 
         private void btnAjouterPrix_Click(object sender, EventArgs e)
         {
-            lsbPrix.Items.Add(tbxPrixAInserer.Text);
+            if (numPrix.Value != 0)
+            {
+                lsbPrix.Items.Add(numPrix.Value);
+            }
             Change();
+
         }
 
         public void Change()
@@ -34,18 +31,13 @@ namespace CaisseEnregistreuse
                 Total += Convert.ToDouble(item);
             }
             lblTotal.Text = Convert.ToString(Total);
-            tbxPrixAInserer.Text = "";
+            numPrix.Value = 0;
         }
 
         private void btnSupprimerPrix_Click(object sender, EventArgs e)
         {
             lsbPrix.Items.Remove(lsbPrix.SelectedItem);
             Change();
-        }
-
-        private void tbxPrixAInserer_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void tbxPrixAInserer_KeyPress(object sender, KeyPressEventArgs e)
@@ -61,6 +53,7 @@ namespace CaisseEnregistreuse
 
         private void btnPaiement_Click(object sender, EventArgs e)
         {
+            Total = Math.Round(Total * 2, 1) / 2;
             E = new Encaissement(Total);
             E.ShowDialog();
         }
@@ -68,6 +61,13 @@ namespace CaisseEnregistreuse
         private void btnRetour_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void numPrix_ValueChanged(object sender, EventArgs e)
+        {
+            numPrix.Value = Math.Round((numPrix.Value), 2);
+            numPrix.DecimalPlaces = 2;
+            numPrix.Increment = 0.5M;
         }
     }
 }

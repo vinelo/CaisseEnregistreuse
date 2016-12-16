@@ -15,7 +15,7 @@ namespace CaisseEnregistreuse
         public Rendu(int[] argentARendre)
         {
             InitializeComponent();
-            const int ESPACE_ENTRE_COUPURE = 10;
+            const int ESPACE_ENTRE_COUPURE = 100;
             int Verification = 0;
             foreach (var coupure in argentARendre)
             {
@@ -52,23 +52,43 @@ namespace CaisseEnregistreuse
                 pbx[12] = new PictureBox();
                 pbx[12].Image = Properties.Resources._0_05;
 
-                int positionX = 10;
-
+                int positionX = 0;
+                int positionY = 0;
                 int positionDansLeTableau = 0;
                 foreach (var coupure in argentARendre)
                 {
+                    int compteur = 0;
                     if (coupure > 0)
                     {
-                        pbx[positionDansLeTableau].Location = new Point(positionX, 95);
+                        pbx[positionDansLeTableau].Location = new Point(positionX, positionY);
                         pbx[positionDansLeTableau].Name = "pbx" + Convert.ToString(positionDansLeTableau);
-                        pbx[positionDansLeTableau].Size = new Size(75, 200);
+                        pbx[positionDansLeTableau].Size = new Size(50, 100);
+                        pbx[positionDansLeTableau].SizeMode = PictureBoxSizeMode.StretchImage;
+
                         this.Controls.Add(pbx[positionDansLeTableau]);
-                        positionX += ESPACE_ENTRE_COUPURE;
 
                         for (int i = 0; i < coupure; i++)
                         {
-                            
+                            compteur++;
                         }
+
+                        Label label = new Label();
+                        label.Location = new System.Drawing.Point(positionX + 100, positionY + 50);
+                        label.Parent = this;
+                        label.Name = "lblFalse";
+                        label.Text = Convert.ToString(compteur);
+                        label.Size = new System.Drawing.Size(300, 21);
+                        this.Controls.Add(label);
+
+                        if (positionY + 100 > this.Height)
+                        {
+                            positionY = 0;
+                        }
+                        else
+                        {
+                            positionY += ESPACE_ENTRE_COUPURE;
+                        }
+
                     }
                     positionDansLeTableau += 1;
                 }

@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             this.lsbPrix = new System.Windows.Forms.ListBox();
-            this.tbxPrixAInserer = new System.Windows.Forms.TextBox();
             this.btnAjouterPrix = new System.Windows.Forms.Button();
             this.btnSupprimerPrix = new System.Windows.Forms.Button();
             this.btnPaiement = new System.Windows.Forms.Button();
             this.btnRetour = new System.Windows.Forms.Button();
             this.lblLabelTotal = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
+            this.numPrix = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.numPrix)).BeginInit();
             this.SuspendLayout();
             // 
             // lsbPrix
@@ -45,15 +46,6 @@
             this.lsbPrix.Name = "lsbPrix";
             this.lsbPrix.Size = new System.Drawing.Size(221, 238);
             this.lsbPrix.TabIndex = 0;
-            // 
-            // tbxPrixAInserer
-            // 
-            this.tbxPrixAInserer.Location = new System.Drawing.Point(12, 28);
-            this.tbxPrixAInserer.Name = "tbxPrixAInserer";
-            this.tbxPrixAInserer.Size = new System.Drawing.Size(83, 20);
-            this.tbxPrixAInserer.TabIndex = 1;
-            this.tbxPrixAInserer.TextChanged += new System.EventHandler(this.tbxPrixAInserer_TextChanged);
-            this.tbxPrixAInserer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxPrixAInserer_KeyPress);
             // 
             // btnAjouterPrix
             // 
@@ -113,21 +105,37 @@
             this.lblTotal.TabIndex = 7;
             this.lblTotal.Text = "0 Fr";
             // 
+            // numPrix
+            // 
+            this.numPrix.DecimalPlaces = 2;
+            this.numPrix.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            131072});
+            this.numPrix.Location = new System.Drawing.Point(12, 28);
+            this.numPrix.Name = "numPrix";
+            this.numPrix.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.numPrix.Size = new System.Drawing.Size(83, 20);
+            this.numPrix.TabIndex = 8;
+            this.numPrix.ValueChanged += new System.EventHandler(this.numPrix_ValueChanged);
+            // 
             // Vente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(245, 395);
+            this.Controls.Add(this.numPrix);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.lblLabelTotal);
             this.Controls.Add(this.btnRetour);
             this.Controls.Add(this.btnPaiement);
             this.Controls.Add(this.btnSupprimerPrix);
             this.Controls.Add(this.btnAjouterPrix);
-            this.Controls.Add(this.tbxPrixAInserer);
             this.Controls.Add(this.lsbPrix);
             this.Name = "Vente";
             this.Text = "Vente";
+            ((System.ComponentModel.ISupportInitialize)(this.numPrix)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -136,12 +144,12 @@
         #endregion
 
         private System.Windows.Forms.ListBox lsbPrix;
-        private System.Windows.Forms.TextBox tbxPrixAInserer;
         private System.Windows.Forms.Button btnAjouterPrix;
         private System.Windows.Forms.Button btnSupprimerPrix;
         private System.Windows.Forms.Button btnPaiement;
         private System.Windows.Forms.Button btnRetour;
         private System.Windows.Forms.Label lblLabelTotal;
         private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.NumericUpDown numPrix;
     }
 }
