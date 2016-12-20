@@ -6,6 +6,8 @@ namespace CaisseEnregistreuse
 {
     public partial class Rendu : Form
     {
+        const int ESPACE_ENTRE_COUPURE = 200;
+
         private Encaissement _encaissement;
 
         public Encaissement Encaissement
@@ -21,22 +23,19 @@ namespace CaisseEnregistreuse
             get { return _vente; }
             set { _vente = value; }
         }
-
-
-
         public Rendu(int[] argentARendre, Vente V, Encaissement E)
         {
             InitializeComponent();
             Encaissement = E;
             Vente = V;
-            const int ESPACE_ENTRE_COUPURE = 100;
+
             int Verification = 0;
             foreach (var coupure in argentARendre)
             {
                 Verification += 1;
             }
 
-            if (Verification > 2)
+            if (Verification == 13)
             {
                 PictureBox[] pbx = new PictureBox[13];
                 pbx[0] = new PictureBox();
@@ -69,29 +68,42 @@ namespace CaisseEnregistreuse
                 int positionX = 0;
                 int positionY = 0;
                 int positionDansLeTableau = 0;
+                int compteur = 0;
                 foreach (var coupure in argentARendre)
                 {
-                    int compteur = 0;
+
+                    int compteurDeBillet = 0;
                     if (coupure > 0)
                     {
+                        for (int i = 0; i < coupure; i++)
+                        {
+                            compteurDeBillet++;
+                        }
+                        Label label = new Label();
+
+                        label.Parent = this;
+                        label.Name = "lblFalse";
+                        label.Text = Convert.ToString(compteurDeBillet);
+                        label.Size = new System.Drawing.Size(300, 21);
+
                         pbx[positionDansLeTableau].Location = new Point(positionX, positionY);
                         pbx[positionDansLeTableau].Name = "pbx" + Convert.ToString(positionDansLeTableau);
-                        pbx[positionDansLeTableau].Size = new Size(50, 100);
                         pbx[positionDansLeTableau].SizeMode = PictureBoxSizeMode.StretchImage;
+                        if (positionDansLeTableau >= 6)
+                        {
+                            pbx[positionDansLeTableau].Size = new Size(150, 100);
+                            label.Location = new System.Drawing.Point(positionX + 200, positionY + 50);
+                        }
+                        else
+                        {
+                            pbx[positionDansLeTableau].Size = new Size(100, 200);
+                            label.Location = new System.Drawing.Point(positionX + 150, positionY + 150);
+                        }
+
 
                         this.Controls.Add(pbx[positionDansLeTableau]);
 
-                        for (int i = 0; i < coupure; i++)
-                        {
-                            compteur++;
-                        }
 
-                        Label label = new Label();
-                        label.Location = new System.Drawing.Point(positionX + 100, positionY + 50);
-                        label.Parent = this;
-                        label.Name = "lblFalse";
-                        label.Text = Convert.ToString(compteur);
-                        label.Size = new System.Drawing.Size(300, 21);
                         this.Controls.Add(label);
 
                         if (positionY + 100 > this.Height)
@@ -102,7 +114,17 @@ namespace CaisseEnregistreuse
                         {
                             positionY += ESPACE_ENTRE_COUPURE;
                         }
-
+                        compteur++;
+                    }
+                    if (compteur == 0)
+                    {
+                        Label label = new Label();
+                        label.Location = new System.Drawing.Point(317, 26);
+                        label.Parent = this;
+                        label.Name = "lblAucunRendu";
+                        label.Text = "Rien à rendre";
+                        label.Size = new System.Drawing.Size(300, 21);
+                        this.Controls.Add(label);
                     }
                     positionDansLeTableau += 1;
                 }
@@ -119,7 +141,6 @@ namespace CaisseEnregistreuse
             }
 
         }
-
 
         private void tbxFin_Click(object sender, EventArgs e)
         {

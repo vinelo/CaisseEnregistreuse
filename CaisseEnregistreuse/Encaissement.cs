@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CaisseEnregistreuse
@@ -19,46 +12,24 @@ namespace CaisseEnregistreuse
 
         public Caisse Caisse
         {
-            get
-            {
-                return _caisse;
-            }
-
-            set
-            {
-                _caisse = value;
-            }
+            get { return _caisse; }
+            set { _caisse = value; }
         }
 
         Rendu _rendu;
 
         public Rendu Rendu
         {
-            get
-            {
-                return _rendu;
-            }
-
-            set
-            {
-                _rendu = value;
-            }
+            get { return _rendu; }
+            set { _rendu = value; }
         }
-
 
         private Vente _vente;
 
         public Vente Vente
         {
-            get
-            {
-                return _vente;
-            }
-
-            set
-            {
-                _vente = value;
-            }
+            get { return _vente; }
+            set { _vente = value; }
         }
 
         public Encaissement(double TotalAPayer, Caisse C, Vente V)
@@ -78,31 +49,22 @@ namespace CaisseEnregistreuse
 
             double Reste = Total - ArgentDonne;
             if (Reste >= 0)
-            {
                 tbxReste.Text = Convert.ToString(Reste);
-            }
             else
-            {
-                tbxReste.Text = "0";
-            }
-        }
-
-        private void btnRetour_Click(object sender, EventArgs e)
-        {
-            this.Close();
+                tbxReste.Text = "0 Fr";
+            
         }
 
         private void btnEncaisser_Click(object sender, EventArgs e)
         {
             int[] Coupure = { Convert.ToInt32(num1000.Value), Convert.ToInt32(num200.Value), Convert.ToInt32(num100.Value), Convert.ToInt32(num50.Value), Convert.ToInt32(num20.Value), Convert.ToInt32(num10.Value), Convert.ToInt32(num5.Value), Convert.ToInt32(num2.Value), Convert.ToInt32(num1.Value), Convert.ToInt32(num05.Value), Convert.ToInt32(num02.Value), Convert.ToInt32(num01.Value), Convert.ToInt32(num005.Value) };
 
-            Rendu = new Rendu(Caisse.Encaissement(Total, Coupure, ArgentDonne),Vente, this);
+            Rendu = new Rendu(Caisse.Encaissement(Total, Coupure, ArgentDonne), Vente, this);
             Rendu.ShowDialog();
         }
-
-        private void Encaissement_Load(object sender, EventArgs e)
+        private void btnRetour_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void num_ValueChanged(object sender, EventArgs e)

@@ -434,7 +434,6 @@
             this.Controls.Add(this.pbx1000);
             this.Name = "Encaissement";
             this.Text = "Encaissement";
-            this.Load += new System.EventHandler(this.Encaissement_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbx005)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbx01)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbx02)).EndInit();

@@ -1,109 +1,121 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CaisseEnregistreuse
+﻿namespace CaisseEnregistreuse
 {
     public partial class Caisse
     {
-        static private int _fr1000;
+        /// <summary>
+        /// Déclaration des variables ( billets et pièces )
+        /// </summary>
+        #region variable
+        private int _fr1000;
 
-        static public int Fr1000
+        public int Fr1000
         {
             get { return _fr1000; }
             set { _fr1000 = value; }
         }
-        static private int _fr200;
+        private int _fr200;
 
-        static public int Fr200
+        public int Fr200
         {
             get { return _fr200; }
             set { _fr200 = value; }
         }
-        static private int _fr100;
+        private int _fr100;
 
-        static public int Fr100
+        public int Fr100
         {
             get { return _fr100; }
             set { _fr100 = value; }
         }
-        static private int _fr50;
+        private int _fr50;
 
-        static public int Fr50
+        public int Fr50
         {
             get { return _fr50; }
             set { _fr50 = value; }
         }
-        static private int _fr20;
+        private int _fr20;
 
-        static public int Fr20
+        public int Fr20
         {
             get { return _fr20; }
             set { _fr20 = value; }
         }
-        static private int _fr10;
+        private int _fr10;
 
-        static public int Fr10
+        public int Fr10
         {
             get { return _fr10; }
             set { _fr10 = value; }
         }
-        static private int _fr5;
+        private int _fr5;
 
-        static public int Fr5
+        public int Fr5
         {
             get { return _fr5; }
             set { _fr5 = value; }
         }
-        static private int _fr2;
+        private int _fr2;
 
-        static public int Fr2
+        public int Fr2
         {
             get { return _fr2; }
             set { _fr2 = value; }
         }
-        static private int _fr1;
+        private int _fr1;
 
-        static public int Fr1
+        public int Fr1
         {
             get { return _fr1; }
             set { _fr1 = value; }
         }
-        static private int _fr05;
+        private int _fr05;
 
-        static public int Fr05
+        public int Fr05
         {
             get { return _fr05; }
             set { _fr05 = value; }
         }
-        static private int _fr02;
+        private int _fr02;
 
-        static public int Fr02
+        public int Fr02
         {
             get { return _fr02; }
             set { _fr02 = value; }
         }
-        static private int _fr01;
+        private int _fr01;
 
-        static public int Fr01
+        public int Fr01
         {
             get { return _fr01; }
             set { _fr01 = value; }
         }
-        static private int _fr005;
+        private int _fr005;
 
-        static public int Fr005
+        public int Fr005
         {
             get { return _fr005; }
             set { _fr005 = value; }
         }
 
-        public Caisse()
-        {
-        }
+        #endregion
 
+        /// <summary>
+        /// Inclut un nouveau fond de caisse
+        /// </summary>
+        /// <param name="nb1000">Nombre de billet de 1000 Fr</param>
+        /// <param name="nb200">Nombre de billet de 200 Fr</param>
+        /// <param name="nb100">Nombre de billet de 100 Fr</param>
+        /// <param name="nb50">Nombre de billet de 50 Fr</param>
+        /// <param name="nb20">Nombre de billet de 20 Fr</param>
+        /// <param name="nb10">Nombre de billet de 10 Fr</param>
+        /// <param name="nb5">Nombre de pièce de 5 Fr</param>
+        /// <param name="nb2">Nombre de pièce de 2 Fr</param>
+        /// <param name="nb1">Nombre de pièce de 1 Fr</param>
+        /// <param name="nb05">Nombre de pièce de 50 Ct</param>
+        /// <param name="nb02">Nombre de pièce de 20 Ct</param>
+        /// <param name="nb01">Nombre de pièce de 10 Ct</param>
+        /// <param name="nb005">Nombre de pièce de 5 Ct</param>
         public void InclureFondDeCaisse(int nb1000, int nb200, int nb100, int nb50, int nb20, int nb10, int nb5, int nb2, int nb1, int nb05, int nb02, int nb01, int nb005)
         {
             Fr1000 = nb1000;
@@ -120,17 +132,32 @@ namespace CaisseEnregistreuse
             Fr01 = nb01;
             Fr005 = nb005;
         }
+
+        /// <summary>
+        /// Retourne un tableau contenant le nombre de billets et de pièce pour chacun des coupures
+        /// </summary>
+        /// <returns>Tableau contenant le nombre de billets et de pièce pour chacune des coupures</returns>
         public int[] returnNumberOfMoney()
         {
             int[] coupureARendre = { Fr1000, Fr200, Fr100, Fr50, Fr20, Fr10, Fr5, Fr2, Fr1, Fr05, Fr02, Fr01, Fr005 };
             return coupureARendre;
         }
 
+        /// <summary>
+        /// Calcule la somme total que contient la caisse
+        /// </summary>
+        /// <returns>Somme total de la caisse</returns>
         public double CalculTotal()
         {
             return 1000 * Fr1000 + 200 * Fr200 + 100 * Fr100 + 50 * Fr50 + 20 * Fr20 + 10 * Fr10 + 5 * Fr5 + 2 * Fr2 + 1 * Fr1 + 0.5 * Fr05 + 0.2 * Fr02 + 0.1 * Fr01 + 0.05 * Fr005;
         }
-
+        /// <summary>
+        /// Encaisse la somme à encaisser avec l'argent donné en paramètre puis retourne l'argent à rendre au client
+        /// </summary>
+        /// <param name="aPayer">Somme à payer</param>
+        /// <param name="coupureDonne">Tableau contenant les coupures données par le client</param>
+        /// <param name="totalDonne">Somme de toutes les coupures données par le client</param>
+        /// <returns>Tableau des coupures à rendre au client</returns>
         public int[] Encaissement(double aPayer, int[] coupureDonne, double totalDonne)
         {
 
