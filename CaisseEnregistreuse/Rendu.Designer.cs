@@ -49,6 +49,7 @@
             this.Controls.Add(this.tbxFin);
             this.Name = "Rendu";
             this.Text = "Rendu";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Rendu_FormClosed);
             this.ResumeLayout(false);
 
         }

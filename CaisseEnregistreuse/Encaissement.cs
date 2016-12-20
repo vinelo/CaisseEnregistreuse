@@ -13,17 +13,63 @@ namespace CaisseEnregistreuse
     public partial class Encaissement : Form
     {
         double Total;
-        Caisse C;
-        public Encaissement(double TotalAPayer)
+        double ArgentDonne;
+
+        private Caisse _caisse;
+
+        public Caisse Caisse
+        {
+            get
+            {
+                return _caisse;
+            }
+
+            set
+            {
+                _caisse = value;
+            }
+        }
+
+        Rendu _rendu;
+
+        public Rendu Rendu
+        {
+            get
+            {
+                return _rendu;
+            }
+
+            set
+            {
+                _rendu = value;
+            }
+        }
+
+
+        private Vente _vente;
+
+        public Vente Vente
+        {
+            get
+            {
+                return _vente;
+            }
+
+            set
+            {
+                _vente = value;
+            }
+        }
+
+        public Encaissement(double TotalAPayer, Caisse C, Vente V)
         {
             InitializeComponent();
             Total = TotalAPayer;
             tbxTotal.Text = Convert.ToString(Total);
 
-            C = new Caisse();
+            Caisse = C;
+            Vente = V;
         }
-
-        double ArgentDonne;
 
         private void Change()
         {
@@ -50,8 +96,8 @@ namespace CaisseEnregistreuse
         {
             int[] Coupure = { Convert.ToInt32(num1000.Value), Convert.ToInt32(num200.Value), Convert.ToInt32(num100.Value), Convert.ToInt32(num50.Value), Convert.ToInt32(num20.Value), Convert.ToInt32(num10.Value), Convert.ToInt32(num5.Value), Convert.ToInt32(num2.Value), Convert.ToInt32(num1.Value), Convert.ToInt32(num05.Value), Convert.ToInt32(num02.Value), Convert.ToInt32(num01.Value), Convert.ToInt32(num005.Value) };
 
-            Rendu R = new Rendu(C.Encaissement(Total, Coupure, ArgentDonne));
-            R.ShowDialog();
+            Rendu = new Rendu(Caisse.Encaissement(Total, Coupure, ArgentDonne),Vente, this);
+            Rendu.ShowDialog();
         }
 
         private void Encaissement_Load(object sender, EventArgs e)
@@ -61,7 +107,7 @@ namespace CaisseEnregistreuse
 
         private void num_ValueChanged(object sender, EventArgs e)
         {
-
+            Change();
         }
     }
 }

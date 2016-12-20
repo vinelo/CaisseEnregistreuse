@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CaisseEnregistreuse
 {
-    class Caisse
+    public partial class Caisse
     {
         static private int _fr1000;
 

@@ -5,13 +5,47 @@ namespace CaisseEnregistreuse
 {
     public partial class Vente : Form
     {
-        public Vente()
+        Encaissement _encaissement;
+
+        public Encaissement Encaissement
         {
-            InitializeComponent();
+            get
+            {
+                return _encaissement;
+            }
+
+            set
+            {
+                _encaissement = value;
+            }
         }
 
-        Encaissement E;
+        Caisse _caisse;
+
+        public Caisse Caisse
+        {
+            get
+            {
+                return _caisse;
+            }
+
+            set
+            {
+                _caisse = value;
+            }
+        }
+
+       
+
+        public Vente(Caisse C)
+        {
+            InitializeComponent();
+            Caisse = C;
+        }
+
         double Total;
+
+
 
         private void btnAjouterPrix_Click(object sender, EventArgs e)
         {
@@ -40,22 +74,11 @@ namespace CaisseEnregistreuse
             Change();
         }
 
-        private void tbxPrixAInserer_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == '.'))
-            { e.Handled = true; }
-            TextBox txtDecimal = sender as TextBox;
-            if (e.KeyChar == '.' && txtDecimal.Text.Contains("."))
-            {
-                e.Handled = true;
-            }
-        }
-
         private void btnPaiement_Click(object sender, EventArgs e)
         {
             Total = Math.Round(Total * 2, 1) / 2;
-            E = new Encaissement(Total);
-            E.ShowDialog();
+            Encaissement = new Encaissement(Total, Caisse, this);
+            Encaissement.ShowDialog();
         }
 
         private void btnRetour_Click(object sender, EventArgs e)

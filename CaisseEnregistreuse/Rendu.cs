@@ -12,9 +12,43 @@ namespace CaisseEnregistreuse
 {
     public partial class Rendu : Form
     {
-        public Rendu(int[] argentARendre)
+        private Encaissement _encaissement;
+
+        public Encaissement Encaissement
+        {
+            get
+            {
+                return _encaissement;
+            }
+
+            set
+            {
+                _encaissement = value;
+            }
+        }
+
+        private Vente _vente;
+
+        public Vente Vente
+        {
+            get
+            {
+                return _vente;
+            }
+
+            set
+            {
+                _vente = value;
+            }
+        }
+
+        
+
+        public Rendu(int[] argentARendre, Vente V ,Encaissement E)
         {
             InitializeComponent();
+            Encaissement = E;
+            Vente = V;
             const int ESPACE_ENTRE_COUPURE = 100;
             int Verification = 0;
             foreach (var coupure in argentARendre)
@@ -22,7 +56,7 @@ namespace CaisseEnregistreuse
                 Verification += 1;
             }
 
-            if (Verification == 13)
+            if (Verification > 2)
             {
                 PictureBox[] pbx = new PictureBox[13];
                 pbx[0] = new PictureBox();
@@ -109,7 +143,13 @@ namespace CaisseEnregistreuse
 
         private void tbxFin_Click(object sender, EventArgs e)
         {
+            this.Close();
+        }
 
+        private void Rendu_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Vente.Close();
+            Encaissement.Close();
         }
     }
 }

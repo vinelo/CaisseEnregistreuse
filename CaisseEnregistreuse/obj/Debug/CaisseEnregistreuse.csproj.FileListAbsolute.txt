@@ -34,3 +34,17 @@ C:\Users\NAEFV_INFO\Desktop\CaisseEnregistreuse\CaisseEnregistreuse\obj\Debug\Ca
 C:\Users\NAEFV_INFO\Desktop\CaisseEnregistreuse\CaisseEnregistreuse\obj\Debug\CaisseEnregistreuse.csproj.GenerateResource.Cache
 C:\Users\NAEFV_INFO\Desktop\CaisseEnregistreuse\CaisseEnregistreuse\obj\Debug\CaisseEnregistreuse.Encaissement.resources
 C:\Users\NAEFV_INFO\Desktop\CaisseEnregistreuse\CaisseEnregistreuse\obj\Debug\CaisseEnregistreuse.Rendu.resources
+C:\Users\I.IN-P4B\Desktop\CaisseEnregistreuse\CaisseEnregistreuse\bin\Debug\CaisseEnregistreuse.exe.config
+C:\Users\I.IN-P4B\Desktop\CaisseEnregistreuse\CaisseEnregistreuse\obj\Debug\CaisseEnregistreuse.exe
+C:\Users\I.IN-P4B\Desktop\CaisseEnregistreuse\CaisseEnregistreuse\obj\Debug\CaisseEnregistreuse.pdb
+C:\Users\I.IN-P4B\Desktop\CaisseEnregistreuse\CaisseEnregistreuse\bin\Debug\CaisseEnregistreuse.exe
+C:\Users\I.IN-P4B\Desktop\CaisseEnregistreuse\CaisseEnregistreuse\bin\Debug\CaisseEnregistreuse.pdb
+C:\Users\I.IN-P4B\Desktop\CaisseEnregistreuse\CaisseEnregistreuse\obj\Debug\CaisseEnregistreuse.csprojResolveAssemblyReference.cache
+C:\Users\I.IN-P4B\Desktop\CaisseEnregistreuse\CaisseEnregistreuse\obj\Debug\CaisseEnregistreuse.Encaissement.resources
+C:\Users\I.IN-P4B\Desktop\CaisseEnregistreuse\CaisseEnregistreuse\obj\Debug\CaisseEnregistreuse.FondDeCaisse.resources
+C:\Users\I.IN-P4B\Desktop\CaisseEnregistreuse\CaisseEnregistreuse\obj\Debug\CaisseEnregistreuse.Form1.resources
+C:\Users\I.IN-P4B\Desktop\CaisseEnregistreuse\CaisseEnregistreuse\obj\Debug\CaisseEnregistreuse.inclusionFondCaisse.resources
+C:\Users\I.IN-P4B\Desktop\CaisseEnregistreuse\CaisseEnregistreuse\obj\Debug\CaisseEnregistreuse.Properties.Resources.resources
+C:\Users\I.IN-P4B\Desktop\CaisseEnregistreuse\CaisseEnregistreuse\obj\Debug\CaisseEnregistreuse.Rendu.resources
+C:\Users\I.IN-P4B\Desktop\CaisseEnregistreuse\CaisseEnregistreuse\obj\Debug\CaisseEnregistreuse.Vente.resources
+C:\Users\I.IN-P4B\Desktop\CaisseEnregistreuse\CaisseEnregistreuse\obj\Debug\CaisseEnregistreuse.csproj.GenerateResource.Cache

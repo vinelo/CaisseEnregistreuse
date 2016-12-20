@@ -12,10 +12,10 @@ namespace CaisseEnregistreuse
 {
     public partial class FondDeCaisse : Form
     {
-        Caisse C = new Caisse();
-
-        public FondDeCaisse()
+        Caisse Caisse;
+        public FondDeCaisse(Caisse C)
         {
+            this.Caisse = C;
             // TODO: Complete member initialization
             InitializeComponent();
             int[] FR = C.returnNumberOfMoney();
