@@ -62,3 +62,6 @@ C:\Users\Naef\Desktop\CaisseEnregistreuse\CaisseEnregistreuse\obj\Debug\CaisseEn
 C:\Users\Naef\Desktop\CaisseEnregistreuse\CaisseEnregistreuse\obj\Debug\CaisseEnregistreuse.Rendu.resources
 C:\Users\Naef\Desktop\CaisseEnregistreuse\CaisseEnregistreuse\obj\Debug\CaisseEnregistreuse.Vente.resources
 C:\Users\Naef\Desktop\CaisseEnregistreuse\CaisseEnregistreuse\obj\Debug\CaisseEnregistreuse.csproj.GenerateResource.Cache
+E:\Desktop\CaisseEnregistreuse\CaisseEnregistreuse\bin\Debug\CaisseEnregistreuse.exe.config
+E:\Desktop\CaisseEnregistreuse\CaisseEnregistreuse\obj\Debug\CaisseEnregistreuse.exe
+E:\Desktop\CaisseEnregistreuse\CaisseEnregistreuse\obj\Debug\CaisseEnregistreuse.pdb
