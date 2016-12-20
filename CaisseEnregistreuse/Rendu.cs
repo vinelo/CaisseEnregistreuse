@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CaisseEnregistreuse
@@ -16,35 +10,21 @@ namespace CaisseEnregistreuse
 
         public Encaissement Encaissement
         {
-            get
-            {
-                return _encaissement;
-            }
-
-            set
-            {
-                _encaissement = value;
-            }
+            get { return _encaissement; }
+            set { _encaissement = value; }
         }
 
         private Vente _vente;
 
         public Vente Vente
         {
-            get
-            {
-                return _vente;
-            }
-
-            set
-            {
-                _vente = value;
-            }
+            get { return _vente; }
+            set { _vente = value; }
         }
 
-        
 
-        public Rendu(int[] argentARendre, Vente V ,Encaissement E)
+
+        public Rendu(int[] argentARendre, Vente V, Encaissement E)
         {
             InitializeComponent();
             Encaissement = E;

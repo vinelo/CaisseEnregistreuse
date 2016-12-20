@@ -5,56 +5,30 @@ namespace CaisseEnregistreuse
 {
     public partial class Vente : Form
     {
+        double Total;
         Encaissement _encaissement;
 
         public Encaissement Encaissement
         {
-            get
-            {
-                return _encaissement;
-            }
-
-            set
-            {
-                _encaissement = value;
-            }
+            get { return _encaissement; }
+            set { _encaissement = value; }
         }
 
         Caisse _caisse;
 
         public Caisse Caisse
         {
-            get
-            {
-                return _caisse;
-            }
-
-            set
-            {
-                _caisse = value;
-            }
+            get { return _caisse; }
+            set { _caisse = value; }
         }
-
-       
 
         public Vente(Caisse C)
         {
             InitializeComponent();
             Caisse = C;
-        }
 
-        double Total;
-
-
-
-        private void btnAjouterPrix_Click(object sender, EventArgs e)
-        {
-            if (numPrix.Value != 0)
-            {
-                lsbPrix.Items.Add(numPrix.Value);
-            }
-            Change();
-
+            btnAjouterPrix.Enabled = false;
+            btnSupprimerPrix.Enabled = false;
         }
 
         public void Change()
@@ -64,8 +38,22 @@ namespace CaisseEnregistreuse
             {
                 Total += Convert.ToDouble(item);
             }
+
             lblTotal.Text = Convert.ToString(Total);
+
+            if (Total == 0)
+                btnSupprimerPrix.Enabled = false;
+            else
+                btnSupprimerPrix.Enabled = true;
+
             numPrix.Value = 0;
+        }
+
+        private void btnAjouterPrix_Click(object sender, EventArgs e)
+        {
+            if (numPrix.Value != 0)
+                lsbPrix.Items.Add(numPrix.Value);
+            Change();
         }
 
         private void btnSupprimerPrix_Click(object sender, EventArgs e)
@@ -88,6 +76,11 @@ namespace CaisseEnregistreuse
 
         private void numPrix_ValueChanged(object sender, EventArgs e)
         {
+            if (numPrix.Value == 0)
+                btnAjouterPrix.Enabled = false;
+            else
+                btnAjouterPrix.Enabled = true;
+
             numPrix.Value = Math.Round((numPrix.Value), 2);
             numPrix.DecimalPlaces = 2;
             numPrix.Increment = 0.5M;

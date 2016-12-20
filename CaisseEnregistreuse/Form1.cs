@@ -24,54 +24,34 @@ namespace CaisseEnregistreuse
 
         public FondDeCaisse FDC
         {
-            get
-            {
-                return _fdc;
-            }
-
-            set
-            {
-                _fdc = value;
-            }
+            get { return _fdc; }
+            set { _fdc = value; }
         }
 
         inclusionFondCaisse _ifdc;
 
         public inclusionFondCaisse IFDC
         {
-            get
-            {
-                return _ifdc;
-            }
+            get { return _ifdc; }
 
-            set
-            {
-                _ifdc = value;
-            }
+            set { _ifdc = value; }
         }
 
         Vente _vente;
 
         public Vente Vente
         {
-            get
-            {
-                return _vente;
-            }
-
-            set
-            {
-                _vente = value;
-            }
+            get { return _vente; }
+            set { _vente = value; }
         }
 
-        
+
         public Form1()
         {
             InitializeComponent();
             Caisse = new Caisse();
         }
-        
+
         private void btnInclureFondCaisse_Click(object sender, EventArgs e)
         {
             IFDC = new inclusionFondCaisse(Caisse);

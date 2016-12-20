@@ -151,91 +151,91 @@ namespace CaisseEnregistreuse
             int Fr01Temp = Fr01 + coupureDonne[11];
             int Fr005Temp = Fr005 + coupureDonne[12];
 
-            while (aRendre >= 1000 && Fr1000 > 0)
+            while (aRendre >= 1000 && Fr1000Temp > 0)
             {
                 aRendre -= 1000;
                 coupureARendre[0] += 1;
                 Fr1000Temp -= 1;
             }
 
-            while (aRendre >= 200 && Fr200 > 0)
+            while (aRendre >= 200 && Fr200Temp > 0)
             {
                 aRendre -= 200;
                 coupureARendre[1] += 1;
                 Fr200Temp -= 1;
             }
 
-            while (aRendre >= 100 && Fr100 > 0)
+            while (aRendre >= 100 && Fr100Temp > 0)
             {
                 aRendre -= 100;
                 coupureARendre[2] += 1;
                 Fr100Temp -= 1;
             }
 
-            while (aRendre >= 50 && Fr50 > 0)
+            while (aRendre >= 50 && Fr50Temp > 0)
             {
                 aRendre -= 50;
                 coupureARendre[3] += 1;
                 Fr50Temp -= 1;
             }
 
-            while (aRendre >= 20 && Fr20 > 0)
+            while (aRendre >= 20 && Fr20Temp > 0)
             {
                 aRendre -= 20;
                 coupureARendre[4] += 1;
                 Fr20Temp -= 1;
             }
 
-            while (aRendre >= 10 && Fr10 > 0)
+            while (aRendre >= 10 && Fr10Temp > 0)
             {
                 aRendre -= 10;
                 coupureARendre[5] += 1;
                 Fr10Temp -= 1;
             }
 
-            while (aRendre >= 5 && Fr5 > 0)
+            while (aRendre >= 5 && Fr5Temp > 0)
             {
                 aRendre -= 5;
                 coupureARendre[6] += 1;
                 Fr5Temp -= 1;
             }
 
-            while (aRendre >= 2 && Fr2 > 0)
+            while (aRendre >= 2 && Fr2Temp > 0)
             {
                 aRendre -= 2;
                 coupureARendre[7] += 1;
                 Fr2Temp -= 1;
             }
 
-            while (aRendre >= 1 && Fr1 > 0)
+            while (aRendre >= 1 && Fr1Temp > 0)
             {
                 aRendre -= 1;
                 coupureARendre[8] += 1;
                 Fr1Temp -= 1;
             }
 
-            while (aRendre >= 0.5 && Fr05 > 0)
+            while (aRendre >= 0.5 && Fr05Temp > 0)
             {
                 aRendre -= 0.5;
                 coupureARendre[9] += 1;
                 Fr05Temp -= 1;
             }
 
-            while (aRendre >= 0.2 && Fr02 > 0)
+            while (aRendre >= 0.2 && Fr02Temp > 0)
             {
                 aRendre -= 0.2;
                 coupureARendre[10] += 1;
                 Fr02Temp -= 1;
             }
 
-            while (aRendre >= 0.1 && Fr01 > 0)
+            while (aRendre >= 0.1 && Fr01Temp > 0)
             {
                 aRendre -= 0.1;
                 coupureARendre[11] += 1;
                 Fr01Temp -= 1;
             }
 
-            while (aRendre >= 0.05 && Fr005 > 0)
+            while (aRendre >= 0.05 && Fr005Temp > 0)
             {
                 aRendre -= 0.05;
                 coupureARendre[12] += 1;
