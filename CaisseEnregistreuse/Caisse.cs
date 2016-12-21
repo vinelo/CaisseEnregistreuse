@@ -1,7 +1,22 @@
-﻿namespace CaisseEnregistreuse
+﻿using System;
+namespace CaisseEnregistreuse
 {
     public partial class Caisse
     {
+        //readonly car const bug
+        readonly decimal mille = 1000;
+        readonly decimal deuxCent = 200;
+        readonly decimal cent = 100;
+        readonly decimal cinquante = 50;
+        readonly decimal vingt = 20;
+        readonly decimal dix = 10;
+        readonly decimal cinq = 5;
+        readonly decimal deux = 2;
+        readonly decimal un = 1;
+        readonly decimal cinquanteCT ;//= 0.5m;
+        readonly decimal vingtCT;// = Convert.ToDecimal(0.2);
+        readonly decimal dixCT ;//= Convert.ToDecimal(0.1);
+        readonly decimal cinqCT ;//= Convert.ToDecimal(0.05);
         /// <summary>
         /// Déclaration des variables ( billets et pièces )
         /// </summary>
@@ -100,6 +115,14 @@
 
         #endregion
 
+        public Caisse()
+        {
+            vingtCT = 0.2m;
+            cinquanteCT = 0.5m;
+            dixCT = 0.1m;
+            cinqCT = 0.05m;
+        }
+
         /// <summary>
         /// Inclut un nouveau fond de caisse
         /// </summary>
@@ -158,11 +181,11 @@
         /// <param name="coupureDonne">Tableau contenant les coupures données par le client</param>
         /// <param name="totalDonne">Somme de toutes les coupures données par le client</param>
         /// <returns>Tableau des coupures à rendre au client</returns>
-        public int[] Encaissement(double aPayer, int[] coupureDonne, double totalDonne)
+        public int[] Encaissement(decimal aPayer, int[] coupureDonne, decimal totalDonne)
         {
 
             int[] coupureARendre = new int[13];
-            double aRendre = totalDonne - aPayer;
+            decimal aRendre = totalDonne - aPayer;
 
             int Fr1000Temp = Fr1000 + coupureDonne[0];
             int Fr200Temp = Fr200 + coupureDonne[1];
@@ -178,93 +201,94 @@
             int Fr01Temp = Fr01 + coupureDonne[11];
             int Fr005Temp = Fr005 + coupureDonne[12];
 
-            while (aRendre >= 1000 && Fr1000Temp > 0)
+            
+            while (aRendre >= mille && Fr1000Temp > 0)
             {
-                aRendre -= 1000;
+                aRendre -= mille;
                 coupureARendre[0] += 1;
                 Fr1000Temp -= 1;
             }
 
-            while (aRendre >= 200 && Fr200Temp > 0)
+            while (aRendre >= deuxCent && Fr200Temp > 0)
             {
-                aRendre -= 200;
+                aRendre -= deuxCent;
                 coupureARendre[1] += 1;
                 Fr200Temp -= 1;
             }
 
-            while (aRendre >= 100 && Fr100Temp > 0)
+            while (aRendre >= cent && Fr100Temp > 0)
             {
-                aRendre -= 100;
+                aRendre -= cent;
                 coupureARendre[2] += 1;
                 Fr100Temp -= 1;
             }
 
-            while (aRendre >= 50 && Fr50Temp > 0)
+            while (aRendre >= cinquante && Fr50Temp > 0)
             {
-                aRendre -= 50;
+                aRendre -= cinquante;
                 coupureARendre[3] += 1;
                 Fr50Temp -= 1;
             }
 
-            while (aRendre >= 20 && Fr20Temp > 0)
+            while (aRendre >= vingt && Fr20Temp > 0)
             {
-                aRendre -= 20;
+                aRendre -= vingt;
                 coupureARendre[4] += 1;
                 Fr20Temp -= 1;
             }
 
-            while (aRendre >= 10 && Fr10Temp > 0)
+            while (aRendre >= dix && Fr10Temp > 0)
             {
-                aRendre -= 10;
+                aRendre -= dix;
                 coupureARendre[5] += 1;
                 Fr10Temp -= 1;
             }
 
-            while (aRendre >= 5 && Fr5Temp > 0)
+            while (aRendre >= cinq && Fr5Temp > 0)
             {
-                aRendre -= 5;
+                aRendre -= cinq;
                 coupureARendre[6] += 1;
                 Fr5Temp -= 1;
             }
 
-            while (aRendre >= 2 && Fr2Temp > 0)
+            while (aRendre >= deux && Fr2Temp > 0)
             {
-                aRendre -= 2;
+                aRendre -= deux;
                 coupureARendre[7] += 1;
                 Fr2Temp -= 1;
             }
 
-            while (aRendre >= 1 && Fr1Temp > 0)
+            while (aRendre >= un && Fr1Temp > 0)
             {
-                aRendre -= 1;
+                aRendre -= un;
                 coupureARendre[8] += 1;
                 Fr1Temp -= 1;
             }
 
-            while (aRendre >= 0.5 && Fr05Temp > 0)
+            while (aRendre >= cinquanteCT && Fr05Temp > 0)
             {
-                aRendre -= 0.5;
+                aRendre -= cinquanteCT;
                 coupureARendre[9] += 1;
                 Fr05Temp -= 1;
             }
-
-            while (aRendre >= 0.2 && Fr02Temp > 0)
+            
+            while (aRendre >= vingtCT && Fr02Temp > 0)
             {
-                aRendre -= 0.2;
+                aRendre -= vingtCT;
                 coupureARendre[10] += 1;
                 Fr02Temp -= 1;
             }
 
-            while (aRendre >= 0.1 && Fr01Temp > 0)
+            while (aRendre >= dixCT && Fr01Temp > 0)
             {
-                aRendre -= 0.1;
+                aRendre -= dixCT;
                 coupureARendre[11] += 1;
                 Fr01Temp -= 1;
             }
 
-            while (aRendre >= 0.05 && Fr005Temp > 0)
+            while (aRendre >= cinqCT && Fr005Temp > 0)
             {
-                aRendre -= 0.05;
+                aRendre -= cinqCT;
                 coupureARendre[12] += 1;
                 Fr005Temp -= 1;
             }

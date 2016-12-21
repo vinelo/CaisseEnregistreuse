@@ -35,7 +35,7 @@ namespace CaisseEnregistreuse
                 Verification += 1;
             }
 
-            if (Verification == 13)
+            if (Verification >= 2)
             {
                 PictureBox[] pbx = new PictureBox[13];
                 pbx[0] = new PictureBox();
@@ -79,41 +79,41 @@ namespace CaisseEnregistreuse
                         {
                             compteurDeBillet++;
                         }
+
                         Label label = new Label();
-
                         label.Parent = this;
-                        label.Name = "lblFalse";
-                        label.Text = Convert.ToString(compteurDeBillet);
-                        label.Size = new System.Drawing.Size(300, 21);
-
+                        label.Text = "x " + Convert.ToString(compteurDeBillet);
+                        label.Size = new System.Drawing.Size(50, 50);
+                        
                         pbx[positionDansLeTableau].Location = new Point(positionX, positionY);
                         pbx[positionDansLeTableau].Name = "pbx" + Convert.ToString(positionDansLeTableau);
                         pbx[positionDansLeTableau].SizeMode = PictureBoxSizeMode.StretchImage;
+
                         if (positionDansLeTableau >= 6)
                         {
                             pbx[positionDansLeTableau].Size = new Size(150, 100);
-                            label.Location = new System.Drawing.Point(positionX + 200, positionY + 50);
+                            label.Location = new System.Drawing.Point(positionX + 160, positionY + 20);
                         }
                         else
                         {
                             pbx[positionDansLeTableau].Size = new Size(100, 200);
-                            label.Location = new System.Drawing.Point(positionX + 150, positionY + 150);
+                            label.Location = new System.Drawing.Point(positionX + 50, positionY + 210);
                         }
 
 
                         this.Controls.Add(pbx[positionDansLeTableau]);
-
-
                         this.Controls.Add(label);
 
-                        if (positionY + 100 > this.Height)
+                        if (positionY + 400 < this.Height)
                         {
-                            positionY = 0;
+                            positionY += 200;
                         }
                         else
                         {
-                            positionY += ESPACE_ENTRE_COUPURE;
+                            positionY = 0;
+                            positionX += 200;
                         }
+
                         compteur++;
                     }
                     if (compteur == 0)

@@ -5,7 +5,7 @@ namespace CaisseEnregistreuse
 {
     public partial class Vente : Form
     {
-        double Total;
+        decimal Total;
         Encaissement _encaissement;
 
         public Encaissement Encaissement
@@ -36,7 +36,7 @@ namespace CaisseEnregistreuse
             Total = 0;
             foreach (var item in lsbPrix.Items)
             {
-                Total += Convert.ToDouble(item);
+                Total += Convert.ToDecimal(item);
             }
 
             lblTotal.Text = Convert.ToString(Total);
