@@ -47,7 +47,7 @@ namespace CaisseEnregistreuse
         {
             decimal d = num1000.Value * 1000 + num200.Value * 200 + num100.Value * 100 + num50.Value * 50 + num20.Value * 20 + num10.Value * 10 + num5.Value * 5 + num2.Value * 2 + num1.Value * 1 + num05.Value * Convert.ToDecimal(0.5) + num02.Value * Convert.ToDecimal(0.2) + num01.Value * Convert.ToDecimal(0.1) + num005.Value * Convert.ToDecimal(0.05);
 
-            tbxTotal.Text = Convert.ToString(d);
+            tbxTotal.Text = Convert.ToString(d) + " Fr";
         }
 
         private void num_ValueChanged(object sender, EventArgs e)

@@ -102,6 +102,7 @@
             // 
             // btnEncaisser
             // 
+            this.btnEncaisser.Enabled = false;
             this.btnEncaisser.Location = new System.Drawing.Point(262, 632);
             this.btnEncaisser.Name = "btnEncaisser";
             this.btnEncaisser.Size = new System.Drawing.Size(191, 23);

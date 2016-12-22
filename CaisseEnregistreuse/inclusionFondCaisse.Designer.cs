@@ -393,6 +393,8 @@
             this.Controls.Add(this.pbx100);
             this.Controls.Add(this.pbx200);
             this.Controls.Add(this.pbx1000);
+            this.MaximumSize = new System.Drawing.Size(817, 680);
+            this.MinimumSize = new System.Drawing.Size(817, 680);
             this.Name = "inclusionFondCaisse";
             this.Text = "inclusionFondCaisse";
             ((System.ComponentModel.ISupportInitialize)(this.pbx005)).EndInit();

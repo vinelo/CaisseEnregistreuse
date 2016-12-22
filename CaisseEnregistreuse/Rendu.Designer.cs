@@ -29,21 +29,21 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Rendu));
-            this.tbxFin = new System.Windows.Forms.Button();
+            this.btnFin = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // tbxFin
+            // btnFin
             // 
-            resources.ApplyResources(this.tbxFin, "tbxFin");
-            this.tbxFin.Name = "tbxFin";
-            this.tbxFin.UseVisualStyleBackColor = true;
-            this.tbxFin.Click += new System.EventHandler(this.tbxFin_Click);
+            resources.ApplyResources(this.btnFin, "btnFin");
+            this.btnFin.Name = "btnFin";
+            this.btnFin.UseVisualStyleBackColor = true;
+            this.btnFin.Click += new System.EventHandler(this.btnFin_Click);
             // 
             // Rendu
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.tbxFin);
+            this.Controls.Add(this.btnFin);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Rendu";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Rendu_FormClosed);
@@ -53,6 +53,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Button tbxFin;
+        private System.Windows.Forms.Button btnFin;
     }
 }

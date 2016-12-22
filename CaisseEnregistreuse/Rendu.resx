@@ -118,29 +118,29 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="tbxFin.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="btnFin.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 462</value>
   </data>
-  <data name="tbxFin.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btnFin.Size" type="System.Drawing.Size, System.Drawing">
     <value>1132, 43</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="tbxFin.TabIndex" type="System.Int32, mscorlib">
+  <data name="btnFin.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="tbxFin.Text" xml:space="preserve">
+  <data name="btnFin.Text" xml:space="preserve">
     <value>Fin</value>
   </data>
-  <data name="&gt;&gt;tbxFin.Name" xml:space="preserve">
-    <value>tbxFin</value>
+  <data name="&gt;&gt;btnFin.Name" xml:space="preserve">
+    <value>btnFin</value>
   </data>
-  <data name="&gt;&gt;tbxFin.Type" xml:space="preserve">
+  <data name="&gt;&gt;btnFin.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tbxFin.Parent" xml:space="preserve">
+  <data name="&gt;&gt;btnFin.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;tbxFin.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;btnFin.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

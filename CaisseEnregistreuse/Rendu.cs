@@ -7,6 +7,9 @@ namespace CaisseEnregistreuse
     public partial class Rendu : Form
     {
         const int ESPACE_ENTRE_COUPURE = 200;
+        int positionX = 0;
+        int positionY = 0;
+        int positionDansLeTableau = 0;
 
         private Encaissement _encaissement;
 
@@ -23,19 +26,29 @@ namespace CaisseEnregistreuse
             get { return _vente; }
             set { _vente = value; }
         }
-        public Rendu(int[] argentARendre, Vente V, Encaissement E)
+
+
+        /// <summary>
+        /// Affiche les coupures à rendre sur la forme
+        /// </summary>
+        /// <param name="argentARendre">Tableau contenant le nombre de coupure à rendre pour chacune d'elle</param>
+        /// <param name="totalARendre">Somme total à rendre au client</param>
+        /// <param name="V">Classe "Vente" </param>
+        /// <param name="E">Classe "Encaissement" </param>
+        public Rendu(int[] argentARendre,decimal totalARendre, Vente V, Encaissement E)
         {
             InitializeComponent();
             Encaissement = E;
             Vente = V;
 
+            //Vérifie si le tableau "argentARendre" contient bien 13 valeurs
             int Verification = 0;
             foreach (var coupure in argentARendre)
             {
                 Verification += 1;
             }
-
-            if (Verification >= 2)
+            //Si oui alors commence l'affichage des billets
+            if (Verification == 13)
             {
                 PictureBox[] pbx = new PictureBox[13];
                 pbx[0] = new PictureBox();
@@ -65,10 +78,8 @@ namespace CaisseEnregistreuse
                 pbx[12] = new PictureBox();
                 pbx[12].Image = Properties.Resources._0_05;
 
-                int positionX = 0;
-                int positionY = 0;
-                int positionDansLeTableau = 0;
-                int compteur = 0;
+                bool Rendre = false;
+
                 foreach (var coupure in argentARendre)
                 {
 
@@ -83,7 +94,7 @@ namespace CaisseEnregistreuse
                         Label label = new Label();
                         label.Parent = this;
                         label.Text = "x " + Convert.ToString(compteurDeBillet);
-                        label.Size = new System.Drawing.Size(50, 50);
+                        label.Size = new System.Drawing.Size(25, 25);
                         
                         pbx[positionDansLeTableau].Location = new Point(positionX, positionY);
                         pbx[positionDansLeTableau].Name = "pbx" + Convert.ToString(positionDansLeTableau);
@@ -93,42 +104,62 @@ namespace CaisseEnregistreuse
                         {
                             pbx[positionDansLeTableau].Size = new Size(150, 100);
                             label.Location = new System.Drawing.Point(positionX + 160, positionY + 20);
+                            
+                            if (positionY + 200 < btnFin.Location.Y)
+                            {
+                                positionY += 100;
+                            }
+                            else
+                            {
+                                positionY = 0;
+                                positionX += 200;
+                            }
                         }
                         else
                         {
                             pbx[positionDansLeTableau].Size = new Size(100, 200);
-                            label.Location = new System.Drawing.Point(positionX + 50, positionY + 210);
+                            label.Location = new System.Drawing.Point(positionX + 120, positionY + 100);
+
+                            if (positionY + 300 < btnFin.Location.Y)
+                            {
+                                positionY += 200;
+                            }
+                            else
+                            {
+                                positionY = 0;
+                                positionX += 200;
+                            }
                         }
 
 
                         this.Controls.Add(pbx[positionDansLeTableau]);
                         this.Controls.Add(label);
 
-                        if (positionY + 400 < this.Height)
-                        {
-                            positionY += 200;
-                        }
-                        else
-                        {
-                            positionY = 0;
-                            positionX += 200;
-                        }
-
-                        compteur++;
-                    }
-                    if (compteur == 0)
-                    {
-                        Label label = new Label();
-                        label.Location = new System.Drawing.Point(317, 26);
-                        label.Parent = this;
-                        label.Name = "lblAucunRendu";
-                        label.Text = "Rien à rendre";
-                        label.Size = new System.Drawing.Size(300, 21);
-                        this.Controls.Add(label);
+                        Rendre = true;
                     }
                     positionDansLeTableau += 1;
                 }
-            }
+                if (Rendre == false)
+                {
+                    Label label = new Label();
+                    label.Location = new System.Drawing.Point(317, 26);
+                    label.Parent = this;
+                    label.Name = "lblAucunRendu";
+                    label.Text = "Rien à rendre";
+                    label.Size = new System.Drawing.Size(300, 21);
+                    this.Controls.Add(label);
+                }
+                else
+                {
+                    Label label = new Label();
+                    label.Location = new System.Drawing.Point(positionX + 20, positionY);
+                    label.Parent = this;
+                    label.Name = "lblARendre";
+                    label.Text = Convert.ToString(totalARendre) + " Fr";
+                    label.Size = new System.Drawing.Size(25, 25);
+                    this.Controls.Add(label);
+                }
+            }//Sinon affiche un label qui dit qu'il n'y a pas asser d'argent dans la caisse pour rendre
             else
             {
                 Label label = new Label();
@@ -142,15 +173,15 @@ namespace CaisseEnregistreuse
 
         }
 
-        private void tbxFin_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void Rendu_FormClosed(object sender, FormClosedEventArgs e)
         {
             Vente.Close();
             Encaissement.Close();
+        }
+
+        private void btnFin_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

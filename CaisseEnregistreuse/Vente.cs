@@ -39,7 +39,7 @@ namespace CaisseEnregistreuse
                 Total += Convert.ToDecimal(item);
             }
 
-            lblTotal.Text = Convert.ToString(Total);
+            lblTotal.Text = Convert.ToString(Total) + " Fr";
 
             if (Total == 0)
                 btnSupprimerPrix.Enabled = false;
