@@ -3,22 +3,9 @@ namespace CaisseEnregistreuse
 {
     public partial class Caisse
     {
-        //readonly car const bug
-        readonly decimal mille = 1000;
-        readonly decimal deuxCent = 200;
-        readonly decimal cent = 100;
-        readonly decimal cinquante = 50;
-        readonly decimal vingt = 20;
-        readonly decimal dix = 10;
-        readonly decimal cinq = 5;
-        readonly decimal deux = 2;
-        readonly decimal un = 1;
-        readonly decimal cinquanteCT ;//= 0.5m;
-        readonly decimal vingtCT;// = Convert.ToDecimal(0.2);
-        readonly decimal dixCT ;//= Convert.ToDecimal(0.1);
-        readonly decimal cinqCT ;//= Convert.ToDecimal(0.05);
+
         /// <summary>
-        /// Déclaration des variables ( billets et pièces )
+        /// Déclaration des variables ( billets, pièces et leur valeur)
         /// </summary>
         #region variable
         private int _fr1000;
@@ -113,6 +100,22 @@ namespace CaisseEnregistreuse
             set { _fr005 = value; }
         }
 
+        //readonly car les constante bug avec le type decimal
+        readonly decimal mille = 1000;
+        readonly decimal deuxCent = 200;
+        readonly decimal cent = 100;
+        readonly decimal cinquante = 50;
+        readonly decimal vingt = 20;
+        readonly decimal dix = 10;
+        readonly decimal cinq = 5;
+        readonly decimal deux = 2;
+        readonly decimal un = 1;
+        //Décalaration de leurs valeurs dans le constructeur car cela ne fonctionne apparement pas ici
+        readonly decimal cinquanteCT;//= 0.5m;
+        readonly decimal vingtCT;// = 0.2m;
+        readonly decimal dixCT;//= 0.1m;
+        readonly decimal cinqCT;//= 0.05m;
+
         #endregion
 
         public Caisse()
@@ -123,6 +126,7 @@ namespace CaisseEnregistreuse
             cinqCT = 0.05m;
         }
 
+        #region Méthode
         /// <summary>
         /// Inclut un nouveau fond de caisse
         /// </summary>
@@ -137,7 +141,7 @@ namespace CaisseEnregistreuse
         /// <param name="nb1">Nombre de pièce de 1 Fr</param>
         /// <param name="nb05">Nombre de pièce de 50 Ct</param>
         /// <param name="nb02">Nombre de pièce de 20 Ct</param>
-        /// <param name="nb01">Nombre de pièce de 10 Ct</param>
+        /// <param name="nb01">Nombre de pièce de 10 Ct</paramnh
         /// <param name="nb005">Nombre de pièce de 5 Ct</param>
         public void InclureFondDeCaisse(int nb1000, int nb200, int nb100, int nb50, int nb20, int nb10, int nb5, int nb2, int nb1, int nb05, int nb02, int nb01, int nb005)
         {
@@ -183,10 +187,12 @@ namespace CaisseEnregistreuse
         /// <returns>Tableau des coupures à rendre au client</returns>
         public int[] Encaissement(decimal aPayer, int[] coupureDonne, decimal totalDonne)
         {
-
+            //Création d'un tableau qui contiendra les coupures à rendre
             int[] coupureARendre = new int[13];
             decimal aRendre = totalDonne - aPayer;
 
+            //Déclaration de variables temporaire dont la valeur sera le nombre de billet dans la caisse + nombre de billet donné
+            //Variable servira à savoir combien de billets nous avons à notre diposition
             int Fr1000Temp = Fr1000 + coupureDonne[0];
             int Fr200Temp = Fr200 + coupureDonne[1];
             int Fr100Temp = Fr100 + coupureDonne[2];
@@ -201,7 +207,7 @@ namespace CaisseEnregistreuse
             int Fr01Temp = Fr01 + coupureDonne[11];
             int Fr005Temp = Fr005 + coupureDonne[12];
 
-            
+            #region boucle afin de savoir combien il faut rendre de billet de chaque
             while (aRendre >= mille && Fr1000Temp > 0)
             {
                 aRendre -= mille;
@@ -292,7 +298,9 @@ namespace CaisseEnregistreuse
                 coupureARendre[12] += 1;
                 Fr005Temp -= 1;
             }
+            #endregion
 
+            //Si il y a asser pour rendre alors procède à l'encaissement
             if (aRendre == 0)
             {
                 Fr1000 = Fr1000Temp;
@@ -309,12 +317,14 @@ namespace CaisseEnregistreuse
                 Fr01 = Fr01Temp;
                 Fr005 = Fr005Temp;
             }
+                //sinon modifie le tableau afin que celui qui l'utilise puisse savoir qu'il n'y a pas asser dans la caisse
             else
             {
                 coupureARendre = new int[1];
             }
-
+            
             return coupureARendre;
         }
     }
 }
+        #endregion

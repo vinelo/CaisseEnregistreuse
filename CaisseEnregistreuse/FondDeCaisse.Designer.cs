@@ -248,7 +248,6 @@
             this.pbx20.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbx20.TabIndex = 36;
             this.pbx20.TabStop = false;
-            this.pbx20.Click += new System.EventHandler(this.pbx20_Click);
             // 
             // pbx10
             // 
@@ -384,7 +383,6 @@
             this.Controls.Add(this.pbx01);
             this.Name = "FondDeCaisse";
             this.Text = "FondDeCaisse";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FondDeCaisse_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pbx1000)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbx200)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbx100)).EndInit();

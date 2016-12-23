@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CaisseEnregistreuse
@@ -13,12 +6,17 @@ namespace CaisseEnregistreuse
     public partial class FondDeCaisse : Form
     {
         Caisse Caisse;
+        /// <summary>
+        /// Constructeur de la form FondDeCaisse
+        /// </summary>
+        /// <param name="C">Classe "Caisse"</param>
         public FondDeCaisse(Caisse C)
         {
             this.Caisse = C;
-            // TODO: Complete member initialization
+
             InitializeComponent();
             int[] FR = C.returnNumberOfMoney();
+            //Initialisation des label afin d'afficher le nombre de billet de chaque
             this.lbl1000.Text = "x " + Convert.ToString(FR[0]);
             this.lbl200.Text = "x " + Convert.ToString(FR[1]);
             this.lbl100.Text = "x " + Convert.ToString(FR[2]);
@@ -39,16 +37,6 @@ namespace CaisseEnregistreuse
         private void btnRetour_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void FondDeCaisse_FormClosing(object sender, FormClosingEventArgs e)
-        {
-
-        }
-
-        private void pbx20_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

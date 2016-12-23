@@ -6,11 +6,12 @@ namespace CaisseEnregistreuse
 {
     public partial class Rendu : Form
     {
+        #region déclaration des variable
         const int ESPACE_ENTRE_COUPURE = 200;
         int positionX = 0;
         int positionY = 0;
         int positionDansLeTableau = 0;
-
+        
         private Encaissement _encaissement;
 
         public Encaissement Encaissement
@@ -26,6 +27,7 @@ namespace CaisseEnregistreuse
             get { return _vente; }
             set { _vente = value; }
         }
+        #endregion
 
 
         /// <summary>
@@ -41,15 +43,16 @@ namespace CaisseEnregistreuse
             Encaissement = E;
             Vente = V;
 
-            //Vérifie si le tableau "argentARendre" contient bien 13 valeurs
+            //Vérifie si le tableau "argentARendre" contient bien 13 valeurs car on sait que si il contient 13 valeurs c'est qu'il y a asser d'argent dans la caisse pour rendre
             int Verification = 0;
             foreach (var coupure in argentARendre)
             {
                 Verification += 1;
             }
-            //Si oui alors commence l'affichage des billets
+            //Si oui alors commence l'affichage
             if (Verification == 13)
             {
+                #region création d'un tableau de pictureBox et y insère les images
                 PictureBox[] pbx = new PictureBox[13];
                 pbx[0] = new PictureBox();
                 pbx[0].Image = Properties.Resources._1000;
@@ -77,20 +80,25 @@ namespace CaisseEnregistreuse
                 pbx[11].Image = Properties.Resources._0_1;
                 pbx[12] = new PictureBox();
                 pbx[12].Image = Properties.Resources._0_05;
+                #endregion
 
                 bool Rendre = false;
-
+                
+                //Pour chaque "valeur de billet"
                 foreach (var coupure in argentARendre)
                 {
 
                     int compteurDeBillet = 0;
+                    //Si il y a des billets à rendre pour la valeur en question
                     if (coupure > 0)
                     {
+                        //Compte le nombre de billet à rendre
                         for (int i = 0; i < coupure; i++)
                         {
                             compteurDeBillet++;
                         }
-
+                        // et procède à l'affichage de celui-ci
+                        #region Affichage 
                         Label label = new Label();
                         label.Parent = this;
                         label.Text = "x " + Convert.ToString(compteurDeBillet);
@@ -100,6 +108,7 @@ namespace CaisseEnregistreuse
                         pbx[positionDansLeTableau].Name = "pbx" + Convert.ToString(positionDansLeTableau);
                         pbx[positionDansLeTableau].SizeMode = PictureBoxSizeMode.StretchImage;
 
+                        //Si la valeur est une pièce alors initialise les valeur de position et de taille en fonction d'une pièce
                         if (positionDansLeTableau >= 6)
                         {
                             pbx[positionDansLeTableau].Size = new Size(150, 100);
@@ -114,7 +123,7 @@ namespace CaisseEnregistreuse
                                 positionY = 0;
                                 positionX += 200;
                             }
-                        }
+                        }//Sinon initialise les valeur de position et de taille en fonction d'un billet
                         else
                         {
                             pbx[positionDansLeTableau].Size = new Size(100, 200);
@@ -131,14 +140,16 @@ namespace CaisseEnregistreuse
                             }
                         }
 
-
+                        //Ajout du label et de la pictureBox
                         this.Controls.Add(pbx[positionDansLeTableau]);
                         this.Controls.Add(label);
 
                         Rendre = true;
                     }
+                        #endregion
                     positionDansLeTableau += 1;
                 }
+                //Si la valeur de rendre est fausse affiche un label qui dit qu'il n'y a rien à rendre
                 if (Rendre == false)
                 {
                     Label label = new Label();
@@ -149,6 +160,7 @@ namespace CaisseEnregistreuse
                     label.Size = new System.Drawing.Size(300, 21);
                     this.Controls.Add(label);
                 }
+                    //sinon affiche un label avec la somme total à rendre
                 else
                 {
                     Label label = new Label();
@@ -159,7 +171,7 @@ namespace CaisseEnregistreuse
                     label.Size = new System.Drawing.Size(25, 25);
                     this.Controls.Add(label);
                 }
-            }//Sinon affiche un label qui dit qu'il n'y a pas asser d'argent dans la caisse pour rendre
+            }//Si il n'y a pas 13 valeurs affiche un label qui dit qu'il n'y a pas asser d'argent dans la caisse pour rendre
             else
             {
                 Label label = new Label();
@@ -172,13 +184,13 @@ namespace CaisseEnregistreuse
             }
 
         }
-
+        //si la form se ferme alors ferme les form précedemment ouverte afin s'atteindre celle-ci
         private void Rendu_FormClosed(object sender, FormClosedEventArgs e)
         {
             Vente.Close();
             Encaissement.Close();
         }
-
+        //Ferme la form
         private void btnFin_Click(object sender, EventArgs e)
         {
             this.Close();

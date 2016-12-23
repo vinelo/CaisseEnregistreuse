@@ -1,17 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CaisseEnregistreuse
 {
     public partial class Form1 : Form
     {
+        #region Déclaration des variables
         private Caisse _caisse;
 
         internal Caisse Caisse
@@ -44,28 +38,32 @@ namespace CaisseEnregistreuse
             get { return _vente; }
             set { _vente = value; }
         }
-
+        #endregion
 
         public Form1()
         {
             InitializeComponent();
+            //Création de la caisse
             Caisse = new Caisse();
         }
 
         private void btnInclureFondCaisse_Click(object sender, EventArgs e)
         {
+            //Affichage de la page d'inclusion de fond de caisse
             IFDC = new inclusionFondCaisse(Caisse);
             IFDC.ShowDialog();
         }
 
         private void btnAfficherFondCaisse_Click(object sender, EventArgs e)
         {
+            //Affichage de la page affichant le fond de caisse
             FDC = new FondDeCaisse(Caisse);
             FDC.ShowDialog();
         }
 
         private void btnProcederVente_Click(object sender, EventArgs e)
         {
+            //Affichage de la page de vente
             Vente = new Vente(Caisse);
             Vente.ShowDialog();
         }
